@@ -1,7 +1,10 @@
 # AppApp: The App App
 
-**The app that builds apps.** Chat with an AI in your browser, and watch it write code to build whatever you ask for — modifying the very application you're using, in real time.
 
+![Screenshot](./img/screenshot.png)
+
+**The app that builds apps.** Chat with an AI in your browser, and watch it write code to build whatever you ask for — modifying the very application you're using, in real time.
+git 
 No IDE. No terminal. No code knowledge required. Just conversation.
 
 ## Try This
