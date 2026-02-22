@@ -1,0 +1,355 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "id": "7a638fc8-bf49-42fc-94e3-3fa4ab276048",
+      "tool": "Write",
+      "match_type": "glob",
+      "pattern": "**/*.md",
+      "action": "allow"
+    },
+    {
+      "id": "3c81a54b-cedc-4019-acc3-36cb09cf3522",
+      "tool": "Edit",
+      "match_type": "glob",
+      "pattern": "**/*.md",
+      "action": "allow"
+    },
+    {
+      "id": "304d518c-ecdf-4653-8e0a-e7133745dcaf",
+      "tool": "MultiEdit",
+      "match_type": "glob",
+      "pattern": "**/*.md",
+      "action": "allow"
+    },
+    {
+      "id": "d50db0d8-3c05-47f6-bb5c-e010ca972aca",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "grep",
+      "action": "allow"
+    },
+    {
+      "id": "ef090ab7-b1b0-4ecd-8f11-98679f1e08db",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "git",
+      "action": "allow"
+    },
+    {
+      "id": "aa487555-ec17-4e68-be1e-ecc02c289625",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "ls",
+      "action": "allow"
+    },
+    {
+      "id": "dffcdc7d-9b85-42bc-9a1c-8996a810e981",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "find",
+      "action": "allow"
+    },
+    {
+      "id": "57dc5337-402d-483f-a0ee-a439a8b88378",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "cat",
+      "action": "allow"
+    },
+    {
+      "id": "01a0832d-37bc-4651-8d85-c5be91b87d1d",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "wc",
+      "action": "allow"
+    },
+    {
+      "id": "e1ff4377-7fc4-46f1-a46e-dd243837db1e",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "head",
+      "action": "allow"
+    },
+    {
+      "id": "a8b4b136-89cc-4bf0-b1d8-c954d1c7cc3c",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "tail",
+      "action": "allow"
+    },
+    {
+      "id": "dff25e6d-c445-47ad-8454-c6a4b4fbc324",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "echo",
+      "action": "allow"
+    },
+    {
+      "id": "e3ee07ec-4b2d-4b37-af38-f39b03f4755f",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "pwd",
+      "action": "allow"
+    },
+    {
+      "id": "ddfc6a1d-ffb2-4593-8c95-2a230b85cf65",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "python",
+      "action": "allow"
+    },
+    {
+      "id": "764137f0-a0bd-4d42-ac52-06fa7859db91",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "sort",
+      "action": "allow"
+    },
+    {
+      "id": "756548e4-329e-4f57-aa91-11593413f96d",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "uniq",
+      "action": "allow"
+    },
+    {
+      "id": "2e1625f9-2cce-4cc2-a841-90ca19240d1b",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "diff",
+      "action": "allow"
+    },
+    {
+      "id": "b81c3c7c-d4bd-48ef-8ec1-50fa0e20eaad",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "rm",
+      "action": "deny"
+    },
+    {
+      "id": "e1273cd0-58db-43bb-8c5c-0612ef16c2fa",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "rmdir",
+      "action": "deny"
+    },
+    {
+      "id": "6c0cf5a0-00ba-4d3a-83d1-18c9880c2ead",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "sudo",
+      "action": "deny"
+    },
+    {
+      "id": "6a14bd47-83c8-4960-87b4-d82b4c962c60",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "su",
+      "action": "deny"
+    },
+    {
+      "id": "56c857a0-4449-4536-b5fb-a003c733a2c5",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "curl",
+      "action": "allow"
+    },
+    {
+      "id": "646a7239-adb8-44c5-818c-3a73d5255130",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "wget",
+      "action": "allow"
+    },
+    {
+      "id": "3cd6dcc1-9437-498e-b097-b41ed9e4d5c3",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "pip",
+      "action": "allow"
+    },
+    {
+      "id": "cd3bfe25-b175-4510-be1b-7c4e7424d520",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "npm",
+      "action": "allow"
+    },
+    {
+      "id": "ce27b00a-55f3-4afa-ba89-f1aed6d8ead1",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "brew",
+      "action": "allow"
+    },
+    {
+      "id": "7889292f-871d-4dab-8a3e-93d53c7132df",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "kill",
+      "action": "deny"
+    },
+    {
+      "id": "4aae2dd5-9a6a-47af-9fcb-42448c6f03cc",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "killall",
+      "action": "deny"
+    },
+    {
+      "id": "bf3e7e68-5959-4871-89c5-015508370976",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "dd",
+      "action": "deny"
+    },
+    {
+      "id": "70578fce-b0d2-4e18-b25d-686744294f44",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "chmod",
+      "action": "deny"
+    },
+    {
+      "id": "f0a68d17-f346-4a7e-b68c-e9591444cdf7",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "chown",
+      "action": "deny"
+    },
+    {
+      "id": "bf4ef06a-89fe-4595-9b88-7b51aabad370",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "cd",
+      "action": "allow"
+    },
+    {
+      "id": "e6055b9e-f361-49e0-82a4-c09ef03b2e26",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "python3",
+      "action": "allow"
+    },
+    {
+      "id": "d1bbdc22-7015-44f4-ab55-bdc09ef3f24d",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "#",
+      "action": "allow"
+    },
+    {
+      "id": "a1b2c3d4-code-write-auto",
+      "tool": "Write",
+      "match_type": "glob",
+      "pattern": "**/src/**",
+      "action": "allow"
+    },
+    {
+      "id": "a1b2c3d4-code-edit-auto",
+      "tool": "Edit",
+      "match_type": "glob",
+      "pattern": "**/src/**",
+      "action": "allow"
+    },
+    {
+      "id": "a1b2c3d4-code-multiedit-auto",
+      "tool": "MultiEdit",
+      "match_type": "glob",
+      "pattern": "**/src/**",
+      "action": "allow"
+    },
+    {
+      "id": "ec777dd9-12f1-4d53-8394-f7dbcebd2cde",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "node",
+      "action": "allow"
+    },
+    {
+      "id": "07866068-a540-4e97-8d06-1ad013870e45",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "pgrep",
+      "action": "allow"
+    },
+    {
+      "id": "44c2c801-5d72-4ba7-b93a-78c1c2adc3f4",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "lsof",
+      "action": "allow"
+    },
+    {
+      "id": "92620927-36d0-41c6-9da7-78fc3a66ec49",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "open",
+      "action": "allow"
+    },
+    {
+      "id": "dc4cf59a-a3ae-4424-9e2a-4044c67d15b5",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "which",
+      "action": "allow"
+    },
+    {
+      "id": "bd110151-2c99-473c-b48e-8ca9e969ced7",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "du",
+      "action": "allow"
+    },
+    {
+      "id": "4247f205-9aec-4ad7-8515-fcbc983074e3",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "mkdir",
+      "action": "allow"
+    },
+    {
+      "id": "177f5094-73ae-4a98-814e-3a5829be8b65",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "ps",
+      "action": "allow"
+    },
+    {
+      "id": "7acfbc69-81d9-426c-b016-b6d451086f2c",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "for",
+      "action": "allow"
+    },
+    {
+      "id": "cb5b02ff-cbc5-4093-895c-494c70214e45",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "bash",
+      "action": "allow"
+    },
+    {
+      "id": "4d69a679-65ef-41a5-9896-da5be2fd8e90",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "env",
+      "action": "allow"
+    },
+    {
+      "id": "6f3ab6c5-4e89-47fd-9fd6-7d814f0d7a9b",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "unset",
+      "action": "allow"
+    },
+    {
+      "id": "e0a0a233-c2ab-4a28-a748-41ad6d3fd361",
+      "tool": "Bash",
+      "match_type": "prefix",
+      "pattern": "cp",
+      "action": "allow"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AppApp</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='28' height='28' rx='6' fill='%233b82f6'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='16' fill='white'%3EAA%3C/text%3E%3C/svg%3E">
+
+  <!-- Markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- Chat Engine -->
+  <script src="/static/chat.js"></script>
+
+  <!-- Syntax highlighting -->
+  <link rel="stylesheet" id="hljs-theme-light" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css">
+  <link rel="stylesheet" id="hljs-theme-dark" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css" disabled>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- App Styles -->
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- ─── Top Bar ──────────────────────────────────────────────── -->
+    <nav id="top-nav">
+      <div class="top-nav-left">
+        <span class="app-brand">AppApp</span>
+      </div>
+      <div class="top-nav-right">
+        <button id="theme-toggle" onclick="cycleTheme()" title="Toggle theme">☀️</button>
+        <button id="btn-restart" onclick="restartBackend()" title="Restart backend">⏻</button>
+      </div>
+    </nav>
+
+    <!-- ─── Body: Info Panel + Resizer + Chat Panel ──────────────── -->
+    <div id="body-row">
+
+      <!-- Left: Info Panel -->
+      <section id="info-panel">
+        <div class="info-content">
+          <div class="info-hero">
+            <h1>AppApp</h1>
+            <p class="info-tagline">A self-modifying web application.</p>
+          </div>
+
+          <div class="info-section">
+            <h2>What is this?</h2>
+            <p>AppApp is a blank canvas that builds itself. Chat with the AI on the right, and it will write code to add features, change behavior, or build whatever you need — modifying this very application in real time.</p>
+          </div>
+
+          <div class="info-section">
+            <h2>How it works</h2>
+            <ul>
+              <li><strong>Chat</strong> — Describe what you want in the chat panel</li>
+              <li><strong>Approve</strong> — Review and approve code changes</li>
+              <li><strong>Iterate</strong> — The app updates live as changes are applied</li>
+            </ul>
+          </div>
+
+          <div class="info-section">
+            <h2>What can you build?</h2>
+            <p>Almost anything. New pages, data visualizations, forms, integrations, tools — the entire application is yours to shape through conversation. Most changes will appear right here in this space.</p>
+          </div>
+
+          <div class="info-section info-hint">
+            <p>💡 This left panel is your app's home. As you add features, they'll replace this welcome content. The chat stays on the right.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resizer Handle -->
+      <div id="panel-resizer" title="Drag to resize"></div>
+
+      <!-- Right: Chat Panel -->
+      <aside id="chat-panel">
+        <div id="chat-tab-bar">
+          <!-- Tabs rendered dynamically by ChatTabManager -->
+          <button id="chat-tab-add" title="New chat tab">+</button>
+          <button id="btn-chat-history" class="btn btn-ghost" onclick="showChatHistory()" title="Chat History">History</button>
+        </div>
+        <div id="chat-messages-wrapper">
+          <div id="chat-messages" class="chat-messages-pane active">
+            <div class="chat-msg system">
+              Welcome to <strong>AppApp</strong>. Start chatting to build whatever you want.
+              <br><br>
+              <em style="color:var(--text-dim)">⌘↵ to send · conversations persist · use + for a new chat</em>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <div id="agent-running" class="agent-running-indicator" style="display:none">
+            <div class="spinner"></div>
+            <span>Agent is working...</span>
+            <button id="btn-cancel-agent" class="btn-cancel-agent" title="Cancel">✕</button>
+          </div>
+          <textarea id="chat-prompt" placeholder="Ask me anything..."></textarea>
+          <div class="chat-input-actions">
+            <select id="chat-model-select" title="Select Model">
+              <option value="">Loading models...</option>
+            </select>
+            <button id="btn-send-agent" class="btn btn-primary">
+              <span class="icon">🚀</span> Run Agent
+            </button>
+          </div>
+        </div>
+      </aside>
+
+    </div><!-- /#body-row -->
+  </div><!-- /#app -->
+
+  <div id="toast-container"></div>
+
+  <!-- ─── Application JavaScript ──────────────────────────────── -->
+  <script src="/static/app.js"></script>
+</body>
+</html>
