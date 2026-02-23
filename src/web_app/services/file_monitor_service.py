@@ -45,16 +45,28 @@ class FileMonitorService:
 
     def has_changed(self, before: dict[str, float]) -> bool:
         """Return True if any monitored file was added, removed, or modified."""
+        return bool(self.changed_files(before))
+
+    def changed_files(self, before: dict[str, float]) -> set[str]:
+        """Return the set of files that were added, removed, or modified."""
         after = self.snapshot()
         if after == before:
-            return False
+            return set()
         added = set(after) - set(before)
         removed = set(before) - set(after)
         modified = {p for p in after if p in before and after[p] != before[p]}
         changed = added | removed | modified
         for p in changed:
-            logger.info("File changed (will restart): %s", p)
-        return True
+            logger.info("File changed: %s", p)
+        return changed
+
+    @staticmethod
+    def only_static_changes(changed: set[str]) -> bool:
+        """Return True if all changed files are static (non-Python) assets."""
+        if not changed:
+            return False
+        static_exts = {".html", ".css", ".js"}
+        return all(Path(p).suffix in static_exts for p in changed)
 
     def schedule_restart(self, delay: float = 1.5) -> None:
         """Restart the server process after a short delay. Safe to call multiple times.

@@ -1904,6 +1904,15 @@ class ChatEngine {
               }
               
               myContainer.scrollTop = myContainer.scrollHeight;
+
+              // If the server says static files changed, reload after a short
+              // delay so the user sees the updated app without waiting for a
+              // full server restart.
+              if (data.reload) {
+                this.showToast('Reloading to show changes...', 'info');
+                setTimeout(() => window.location.reload(), 1200);
+              }
+
               streamDone = true;
               break; // exit inner for-loop; outer while checks streamDone flag
             } else if (data.type === 'text') {
