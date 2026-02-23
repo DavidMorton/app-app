@@ -320,6 +320,7 @@ class ClaudeCodeProvider(AgentProvider):
         # If the previous run for this chat was cancelled, Claude's session may
         # have lost the user's original request.  Prepend it as context so the
         # follow-up message makes sense.
+        original_prompt = prompt
         prev_prompt = self._cancelled_prompts.pop(chat_id, "") if chat_id else ""
         if prev_prompt:
             prompt = (
@@ -327,7 +328,8 @@ class ClaudeCodeProvider(AgentProvider):
                 f"Their original message was:\n\n{prev_prompt}\n\n"
                 f"---\nTheir new message is:]\n\n{prompt}"
             )
-        yield from self._run_stream_impl(prompt, workspace, model, chat_id, images)
+        yield from self._run_stream_impl(prompt, workspace, model, chat_id, images,
+                                         _original_prompt=original_prompt)
 
     def _run_stream_impl(
         self,
@@ -337,6 +339,7 @@ class ClaudeCodeProvider(AgentProvider):
         chat_id: str = "",
         images: list[dict] | None = None,
         _is_retry: bool = False,
+        _original_prompt: str = "",
     ) -> Iterator[str]:
         # ── build command ─────────────────────────────────────────────
         cmd = [
@@ -586,7 +589,7 @@ class ClaudeCodeProvider(AgentProvider):
         # ── Skip post-processing if the request was cancelled ─────────
         if was_cancelled:
             if chat_id:
-                self._cancelled_prompts[chat_id] = prompt
+                self._cancelled_prompts[chat_id] = _original_prompt or prompt
             return
 
         # ── Post-process: log summary and detect prompt-too-long ─────
