@@ -41,23 +41,55 @@ So I tore out everything specific and stripped it down to a clean, general-purpo
 
 ## Prerequisites
 
-**[Claude Code](https://docs.anthropic.com/en/docs/claude-code) must be installed.** AppApp uses the Claude Code CLI (`claude`) as its AI backend. Without it, there's no AI — the chat panel needs the CLI available on your PATH to function.
-
-You'll also need:
+- **[Claude Code](https://docs.anthropic.com/en/docs/claude-code)** — the AI backend. Install it and log in first.
 - **Python 3.11+**
-- **An Anthropic API key** (or Claude Code already configured with authentication)
 
-## Quick Start
+That's it. The install script handles everything else.
+
+## Install
+
+**One command:**
 
 ```bash
-git clone https://github.com/your-username/AppApp.git
+curl -fsSL https://raw.githubusercontent.com/DavidMorton/app-app/main/install.sh | bash
+```
+
+This will:
+1. Install [uv](https://docs.astral.sh/uv/) (a fast Python package manager) if you don't have it
+2. Download AppApp to `~/AppApp`
+3. Install dependencies
+4. Set up the `appapp` command
+
+**Then start it:**
+
+```bash
+appapp
+```
+
+Open [http://127.0.0.1:5050](http://127.0.0.1:5050) and start building.
+
+<details>
+<summary><strong>Manual install (if you prefer)</strong></summary>
+
+```bash
+git clone https://github.com/DavidMorton/app-app.git
+cd AppApp
+uv sync
+cd src/web_app
+uv run python app.py
+```
+
+Or with pip:
+
+```bash
+git clone https://github.com/DavidMorton/app-app.git
 cd AppApp
 pip install -r src/web_app/requirements.txt
 cd src/web_app
 python app.py
 ```
 
-Open [http://127.0.0.1:5050](http://127.0.0.1:5050) and start building.
+</details>
 
 ## How It Works
 

@@ -72,9 +72,18 @@ class AgentSessionService:
                     yield emit({"type": "text", "content": line})
 
             logger.info("── agent completed ──────────────────────────────")
-            if snapshot_before is not None and self.file_monitor.has_changed(snapshot_before):
-                self.file_monitor.schedule_restart()
-            yield emit({"type": "done", "exit_code": 0})
+            needs_reload = False
+            if snapshot_before is not None:
+                changed = self.file_monitor.changed_files(snapshot_before)
+                if changed:
+                    if self.file_monitor.only_static_changes(changed):
+                        # Static files (HTML/CSS/JS) — no server restart needed,
+                        # just tell the browser to reload.
+                        logger.info("Static-only changes — sending reload event (no restart)")
+                        needs_reload = True
+                    else:
+                        self.file_monitor.schedule_restart()
+            yield emit({"type": "done", "exit_code": 0, "reload": needs_reload})
         except FileNotFoundError:
             yield emit({"type": "error", "message": "Agent CLI not found. Check that Claude Code is installed and on PATH."})
         except Exception as exc:
